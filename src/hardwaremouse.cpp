@@ -1,5 +1,5 @@
 /**
- * Ashita - Copyright (c) 2023 Ashita Development Team
+ * Ashita - Copyright (c) 2025 Ashita Development Team
  * Contact: https://www.ashitaxi.com/
  * Contact: https://discord.gg/Ashita
  *
@@ -120,6 +120,11 @@ __declspec(dllexport) auto __stdcall expCreatePlugin(const char* args) -> IPlugi
     UNREFERENCED_PARAMETER(args);
 
     return new hardwaremouse::plugin();
+}
+
+__declspec(dllexport) auto __stdcall expDestroyPlugin(void* instance) -> void
+{
+    delete static_cast<hardwaremouse::plugin*>(instance);
 }
 
 __declspec(dllexport) auto __stdcall expGetInterfaceVersion(void) -> double
